@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService {
-  private productUrl = 'http://localhost:57247/api/values';  // URL to web api
+  private productUrl = 'http://localhost:57247/api/values/';  // URL to web api
 
   constructor(private http: Http) { }
 
@@ -18,11 +18,10 @@ export class ProductService {
   }
 
   getProduct(id: number) {
-    return this.getProducts()
-      .subscribe(products => {
-        console.log(products);
-        // products.find(product => product.id === id)
-      });
+    let url = this.productUrl + id;
+    return this.http
+      .get(url)
+      .map((response: Response) => response.json())
   }
 
   private handleError(error: any): Promise<any> {
