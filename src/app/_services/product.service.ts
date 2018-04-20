@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 import { Product } from '../product/product';
 
@@ -7,7 +8,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService {
-  private productUrl = 'http://localhost:57247/api/values/';  // URL to web api
+  private productUrl = environment.baseUrl + 'api/values/';  // URL to web api
 
   constructor(private http: Http) { }
 
