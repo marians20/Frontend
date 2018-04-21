@@ -9,6 +9,6 @@ describe('hello-ci-cd-fe App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Hello to CI/CD workshop!');
+    expect(page.getParagraphText()).toEqual('Build. Deploy. !Pray. Test');
   });
 });
